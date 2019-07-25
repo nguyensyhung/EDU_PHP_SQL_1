@@ -6,5 +6,12 @@ function url_for($script_path) {
     }
     return WWW_ROOT . $script_path;
   }
-  
+function enCode($string ='')
+{
+  return urlencode($string);
+}
+function raw_enCode($string ='')
+{
+  return rawurlencode($string);
+}
 ?>
