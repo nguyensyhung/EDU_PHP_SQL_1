@@ -12,7 +12,7 @@
 <?php $page_title = "Subjects"; ?>
 <?php include(SHARED_PATH . "/staff_header.php"); ?>
     <div id="content">
-      <div class="subjects listing">
+      <div class="pages listing">
         <h1> Subjects</h1>
         <div class="actions">
           <a href="" class="action">Create new Subject</a>
