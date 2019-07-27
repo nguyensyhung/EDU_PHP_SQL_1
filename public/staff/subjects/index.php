@@ -15,7 +15,7 @@
       <div class="pages listing">
         <h1> Subjects</h1>
         <div class="actions">
-          <a href="" class="action">Create new Subject</a>
+          <a href="<?php echo url_for('/staff/subjects/new.php'); ?>" class="action">Create new Subject</a>
         </div>
 
         <table class = "list">
@@ -35,7 +35,7 @@
             <td> <?php echo $subject['visible'] == 1 ? 'true' : 'false' ;?></td>
             <td> <?php echo $subject['menu_name'] ;?></td>
             <td> <a class="action" href="<?php echo url_for('/staff/subjects/show.php?id='.$subject['id']); ?>"> Show</a></td>
-            <td> <a class="action" href=""> Edit</a></td>
+            <td> <a class="action" href="<?php echo url_for('/staff/subjects/edit.php?id='. h(enCode($subject['id']))); ?>"> Edit</a></td>
             <td> <a class="action" href=""> Delete</a></td>
           </tr>
           <?php } ?>
