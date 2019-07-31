@@ -19,22 +19,28 @@
     <table class="list">
       <tr>
         <th>ID</th>
+        <th>Subject Name</th>
         <th>Position</th>
         <th>Visible</th>
         <th>Name</th>
+        <th>Content</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
       </tr>
+
 <?php while ($page = mysqli_fetch_assoc( $pages)) { ?>
+<?php $subject = find_subject_by_id($page['subject_id']); ?>
       <tr>
         <td><?php echo h($page['id']); ?></td>
+        <td><?php echo h($subject['menu_name']); ?></td>
         <td><?php echo h($page['position']) ; ?></td>
         <td><?php echo $page['visible'] == 1 ? 'true' : 'false' ?></td>
         <td><?php echo h($page['menu_name']) ; ?></td>
-        <td class="action"><a href="<?php echo url_for('/staff/pages/show.php?name='. h(enCode($page['menu_name'])));?>"> Show</a></td>
+        <td><?php echo h($page['content']); ?></td>
+        <td class="action"><a href="<?php echo url_for('/staff/pages/show.php?id='. h(enCode($page['id'])));?>"> Show</a></td>
         <td class="action"><a href="<?php echo url_for('/staff/pages/edit.php?id='. h(enCode($page['id'])));?>"> Edit</a></td>
-        <td class="action"><a href=""> Delete</a></td>
+        <td class="action"><a href="<?php echo url_for('/staff/pages/delete.php?id='. h(enCode($page['id'])));?>"> Delete</a></td>
       </tr>
 <?php }?>
     </table>
